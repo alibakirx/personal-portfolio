@@ -34,16 +34,16 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f1f5f9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3B82F6;
+  background: #3b82f6;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2563EB;
+  background: #2563eb;
 }
 
 /* Additional Animations */
@@ -109,7 +109,7 @@ html {
 }
 
 .read-the-docs {
-  color: #888;
+  color: #64748b;
 }
 
 /* General Styles */
@@ -120,21 +120,20 @@ html {
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   line-height: 1.6;
   min-height: 100vh;
-  background-image: url('./assets/orman.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white;
+  background: linear-gradient(135deg, #6100cf 0%, #6f5d83 100%);
+  color: #1e293b;
 }
 
 /* Navbar Styles */
 .navbar {
-  background-color: #333;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   padding: 1rem;
-  color: white;
+  color: #1e293b;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .nav-container {
@@ -146,10 +145,11 @@ body {
 }
 
 .nav-logo {
-  color: white;
+  color: #1e293b;
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bold;
+  font-family: 'Poppins', system-ui, sans-serif;
 }
 
 .nav-menu {
@@ -159,8 +159,14 @@ body {
 }
 
 .nav-menu a {
-  color: white;
+  color: #475569;
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-menu a:hover {
+  color: #3b82f6;
 }
 
 /* Main Content Styles */
@@ -181,15 +187,12 @@ body {
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
-  background-image: url('./assets/orman.png');
-
 }
 
 /* Contact Form Styles */
 .contact-form {
   max-width: 600px;
   margin: 0 auto;
-  background-image: url('./assets/orman.png');
 }
 
 .form-group {
@@ -199,31 +202,56 @@ body {
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
+  color: #374151;
+  font-weight: 500;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+  background-color: #ffffff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 button {
-  background-color: #333;
+  background-color: #3b82f6;
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-/* 3D Cube Styles */
+button:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Cube Styles */
 .cube-container {
+  perspective: 1000px;
   width: 200px;
   height: 200px;
-  perspective: 1000px;
-  margin: 2rem auto;
+  margin: 0 auto;
 }
 
 .cube {
@@ -231,20 +259,23 @@ button {
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  animation: rotate 15s infinite linear;
+  animation: rotate 20s infinite linear;
 }
 
 .face {
   position: absolute;
   width: 200px;
   height: 200px;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  border: 2px solid #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
-  background: rgba(51, 51, 51, 0.9);
+  font-size: 1.5rem;
+  font-weight: bold;
   color: white;
-  border: 2px solid white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .front  { transform: translateZ(100px); }
@@ -255,7 +286,7 @@ button {
 .bottom { transform: rotateX(-90deg) translateZ(100px); }
 
 @keyframes rotate {
-  from { transform: rotateX(0) rotateY(0); }
+  from { transform: rotateX(0deg) rotateY(0deg); }
   to { transform: rotateX(360deg) rotateY(360deg); }
 }
 

@@ -14,8 +14,8 @@ const About = () => {
       type: 'education',
       title: "Bachelor's in Computer Science",
       company: 'Dokuz Eylül University',
-      date: '2022 - 2026',
-      skills: [],
+      date: '2021 - 2025',
+      skills: ['C', 'C#', 'Database', 'Algorithms'],
       icon: GraduationCap,
     },
     {
@@ -63,7 +63,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="section section-light">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
@@ -74,7 +74,7 @@ const About = () => {
         >
           <motion.h2
             variants={itemVariants}
-            className="text-4xl font-bold text-center mb-12 text-gray-800"
+            className="text-4xl font-bold text-center mb-12 text-secondary-900 font-display"
           >
             Experience & Education
           </motion.h2>
@@ -84,27 +84,27 @@ const About = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
+                className="card p-6 hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/10 rounded-lg">
-                    <exp.icon className="w-6 h-6 text-primary" />
+                  <div className="p-3 bg-gradient-to-br from-primary-100 to-primary-200 rounded-lg">
+                    <exp.icon className="w-6 h-6 text-primary-700" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-800">
+                    <h3 className="text-xl font-semibold text-secondary-900">
                       {exp.title}
                     </h3>
-                    <p className="text-gray-600 mt-1">{exp.company}</p>
-                    <div className="flex items-center gap-2 text-gray-500 mt-2">
+                    <p className="text-secondary-600 mt-1 font-medium">{exp.company}</p>
+                    <div className="flex items-center gap-2 text-secondary-500 mt-2">
                       <Calendar className="w-4 h-4" />
-                      <span>{exp.date}</span>
+                      <span className="text-sm">{exp.date}</span>
                     </div>
                     {exp.skills.length > 0 && (
                       <div className="flex flex-wrap gap-2 mt-4">
                         {exp.skills.map((skill, skillIndex) => (
                           <span
                             key={skillIndex}
-                            className="px-3 py-1 bg-primary/5 text-primary rounded-full text-sm"
+                            className="px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm font-medium border border-primary-200"
                           >
                             {skill}
                           </span>

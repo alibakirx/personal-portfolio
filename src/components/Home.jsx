@@ -34,15 +34,14 @@ const Home = () => {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
       style={{
-        backgroundImage: 'url(/images/forest-background.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed'
       }}
     >
-      {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/40"></div>
+      {/* Professional overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-br from-secondary-900/70 via-secondary-800/60 to-primary-900/50"></div>
       
       <motion.div
         ref={ref}
@@ -53,16 +52,23 @@ const Home = () => {
       >
         <motion.h1
           variants={itemVariants}
-          className="text-5xl md:text-7xl font-bold text-white mb-4 drop-shadow-2xl"
+          className="text-5xl md:text-7xl font-bold text-white mb-4 drop-shadow-2xl font-display"
         >
           Muhammed Ali Bakır
         </motion.h1>
         
         <motion.p
           variants={itemVariants}
-          className="text-2xl md:text-3xl text-white/90 mb-12 drop-shadow-lg"
+          className="text-3xl md:text-4xl text-white/90 mb-12 drop-shadow-lg font-light"
         >
           Jr. Software Developer
+        </motion.p>
+
+        <motion.p
+          variants={itemVariants}
+          className="text-2xl md:text-3xl text-white/90 mb-12 drop-shadow-lg font-light"
+        >
+          As a senior in Computer Science at Dokuz Eylül University, I've developed a deep interest in Web Development, Data, Big Data, Artificial Intelligence, and Cloud Computing. I'm constantly striving to improve my skills in these areas. I love exploring and learning new technologies.
         </motion.p>
 
         <motion.div
@@ -80,7 +86,7 @@ const Home = () => {
             href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-block bg-primary/90 backdrop-blur-sm text-white px-8 py-3 rounded-full font-semibold hover:bg-primary/80 transition-colors shadow-xl border border-white/20"
+            className="inline-block bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-4 rounded-full font-semibold hover:from-primary-700 hover:to-primary-800 transition-all duration-300 shadow-xl border border-white/20 backdrop-blur-sm"
           >
             Contact Me
           </motion.a>

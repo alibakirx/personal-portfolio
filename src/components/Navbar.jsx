@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import logo from '../assets/logo.svg';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,16 +23,20 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-secondary-200' : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold text-gray-800"
+            className="text-2xl font-bold text-secondary-900 font-display"
           >
-            
+            <img 
+              src={logo} 
+              alt="Logo" 
+              className="h-10 w-auto"
+            />
           </motion.div>
 
           {/* Desktop Menu */}
@@ -42,7 +47,11 @@ const Navbar = () => {
                 href={`#${item.toLowerCase()}`}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="text-gray-700 hover:text-primary transition-colors"
+                className={`font-medium transition-colors duration-200 ${
+                  isScrolled 
+                    ? 'text-secondary-700 hover:text-primary-600' 
+                    : 'text-white/90 hover:text-white'
+                }`}
               >
                 {item}
               </motion.a>
@@ -54,7 +63,11 @@ const Navbar = () => {
             className="md:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? (
+              <X size={24} className={isScrolled ? 'text-secondary-700' : 'text-white'} />
+            ) : (
+              <Menu size={24} className={isScrolled ? 'text-secondary-700' : 'text-white'} />
+            )}
           </button>
         </div>
 
@@ -64,13 +77,13 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden mt-4 space-y-4"
+            className="md:hidden mt-4 space-y-4 bg-white/95 backdrop-blur-md rounded-lg p-4 shadow-lg"
           >
             {navItems.map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="block text-gray-700 hover:text-primary transition-colors"
+                className="block text-secondary-700 hover:text-primary-600 transition-colors font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item}
