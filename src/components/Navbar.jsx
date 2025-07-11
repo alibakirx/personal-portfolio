@@ -42,7 +42,7 @@ const Navbar = () => {
             <img 
               src={logo} 
               alt="Logo" 
-              className="h-10 w-auto"
+              className="h-14 w-auto"
             />
           </motion.div>
 
@@ -98,6 +98,15 @@ const Navbar = () => {
                 {item}
               </a>
             ))}
+            <button
+              onClick={() => {
+                toggleLanguage();
+                setIsMobileMenuOpen(false);
+              }}
+              className="w-full mt-4 px-4 py-2 rounded border text-sm font-semibold transition-colors duration-200 border-secondary-400 text-secondary-700 hover:bg-secondary-100"
+            >
+              {language === 'tr' ? 'ENG' : 'TR'}
+            </button>
           </motion.div>
         )}
       </div>
