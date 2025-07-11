@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Mail, Github, Linkedin } from 'lucide-react';
+import { LanguageContext } from '../context/LanguageContext';
 
 const Contact = () => {
+  const { language } = useContext(LanguageContext);
   const { ref, inView } = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -52,7 +54,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section section-white">
+    <section id="contact" className="section bg-gradient-to-br from-[#6100cf] via-[#6f5d83] to-[#1e293b]">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
@@ -65,14 +67,14 @@ const Contact = () => {
             variants={itemVariants}
             className="text-4xl font-bold mb-8 text-secondary-900 font-display"
           >
-            Contact Me
+            {language === 'tr' ? 'İletişim' : 'Contact Me'}
           </motion.h2>
           
           <motion.p
             variants={itemVariants}
-            className="text-xl text-secondary-600 mb-12 font-light"
+            className="text-xl text-secondary-600 mb-12 font-light text-white"
           >
-            My social media accounts
+            {language === 'tr' ? 'Sosyal medya hesaplarım' : 'My social media accounts'}
           </motion.p>
 
           <motion.div

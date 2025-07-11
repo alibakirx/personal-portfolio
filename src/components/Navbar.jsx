@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import logo from '../assets/logo.svg';
+import { LanguageContext } from '../context/LanguageContext';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,21 +17,27 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = ['Home', 'About', 'Contact'];
+  const { language, toggleLanguage } = useContext(LanguageContext);
+
+  const navItems = [
+    language === 'tr' ? 'Anasayfa' : 'Home',
+    language === 'tr' ? 'Hakkımda' : 'About',
+    language === 'tr' ? 'İletişim' : 'Contact',
+  ];
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-secondary-200' : 'bg-transparent'
-      }`}
+      className="fixed top-0 w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-secondary-200"
     >
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex justify-between items-center">
+      <div className="w-full px-6 py-4 flex items-center justify-center">
+        <div className="flex items-center w-full max-w-5xl justify-between">
+          {/* Logo - Sol */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold text-secondary-900 font-display"
+            className="text-2xl font-bold text-secondary-900 font-display flex-shrink-0"
+            style={{ minWidth: 48 }}
           >
             <img 
               src={logo} 
@@ -39,34 +46,36 @@ const Navbar = () => {
             />
           </motion.div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
+          {/* Menü - Orta */}
+          <div className="hidden md:flex flex-1 justify-center items-center space-x-8">
+            {navItems.map((item, idx) => (
               <motion.a
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={`#${['home','about','contact'][idx]}`}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className={`font-medium transition-colors duration-200 ${
-                  isScrolled 
-                    ? 'text-secondary-700 hover:text-primary-600' 
-                    : 'text-white/90 hover:text-white'
-                }`}
+                className={`font-medium transition-colors duration-200 text-secondary-700 hover:text-primary-600`}
               >
                 {item}
               </motion.a>
             ))}
+            <button
+              onClick={toggleLanguage}
+              className="ml-4 px-2 py-1 rounded border text-xs font-semibold transition-colors duration-200 border-secondary-400 text-secondary-700 hover:bg-secondary-100"
+            >
+              {language === 'tr' ? 'ENG' : 'TR'}
+            </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Sağ */}
           <button
-            className="md:hidden"
+            className="md:hidden flex-shrink-0 ml-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X size={24} className={isScrolled ? 'text-secondary-700' : 'text-white'} />
+              <X size={24} className={'text-secondary-700'} />
             ) : (
-              <Menu size={24} className={isScrolled ? 'text-secondary-700' : 'text-white'} />
+              <Menu size={24} className={'text-secondary-700'} />
             )}
           </button>
         </div>
