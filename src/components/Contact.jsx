@@ -57,7 +57,7 @@ const Contact = () => {
     {
       name: language === 'tr' ? 'CV Görüntüle' : 'View CV',
       icon: FileText,
-      href: '/cvGuncel.pdf',
+      href: '/src/assets/cvGuncel.pdf',
       color: 'from-green-500 to-green-600',
       hoverColor: 'from-green-600 to-green-700',
       action: 'view'
@@ -65,7 +65,7 @@ const Contact = () => {
     {
       name: language === 'tr' ? 'CV İndir' : 'Download CV',
       icon: Download,
-      href: '/cvGuncel.pdf',
+      href: '/src/assets/cvGuncel.pdf',
       color: 'from-purple-500 to-purple-600',
       hoverColor: 'from-purple-600 to-purple-700',
       action: 'download'
