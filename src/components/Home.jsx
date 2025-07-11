@@ -59,7 +59,7 @@ const Home = () => {
               variants={itemVariants}
               className="text-3xl md:text-4xl lg:text-5xl text-white/90 mb-8 drop-shadow-lg font-light text-center w-full"
             >
-              {language === 'tr' ? 'Jr. Yazılım Gelişirici' : 'Jr. Software Developer'}
+              {language === 'tr' ? 'Jr. Yazılım Geliştirici' : 'Jr. Software Developer'}
             </motion.p>
 
 

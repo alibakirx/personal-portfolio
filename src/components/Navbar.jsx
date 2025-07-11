@@ -88,10 +88,10 @@ const Navbar = () => {
             exit={{ opacity: 0, y: -20 }}
             className="md:hidden mt-4 space-y-4 bg-white/95 backdrop-blur-md rounded-lg p-4 shadow-lg"
           >
-            {navItems.map((item) => (
+            {navItems.map((item, idx) => (
               <a
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={`#${['home','about','contact'][idx]}`}
                 className="block text-secondary-700 hover:text-primary-600 transition-colors font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
