@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const SkillsCube = () => {
   const skillsCube1 = ['JavaScript', 'API', 'Git', 'Python', 'SQL', 'React'];
-  const skillsCube2 = ['C', 'C#', 'Cloud', 'Airflow', 'Spark', 'HDFS'];
+  const skillsCube2 = ['C', 'C#', 'Cloud', 'Airflow', 'Spark', 'AI'];
 
   const CubeComponent = ({ skills, rotationAnimation, glowColor, gradientColors }) => {
     const faces = [

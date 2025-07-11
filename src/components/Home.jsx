@@ -68,7 +68,13 @@ const Home = () => {
           variants={itemVariants}
           className="text-2xl md:text-3xl text-white/90 mb-12 drop-shadow-lg font-light"
         >
-          As a senior in Computer Science at Dokuz Eylül University, I've developed a deep interest in Web Development, Data, Big Data, Artificial Intelligence, and Cloud Computing. I'm constantly striving to improve my skills in these areas. I love exploring and learning new technologies.
+          As a senior in Computer Science
+          at Dokuz Eylül University,<br />
+          I've developed a deep interest in
+          Web Development, Data, Big Data,
+          AI, and Cloud Computing.<br />
+          I'm constantly striving to improve my skills
+          in these areas.<br />
         </motion.p>
 
         <motion.div

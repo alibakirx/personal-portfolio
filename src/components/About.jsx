@@ -9,7 +9,7 @@ const About = () => {
     triggerOnce: true,
   });
 
-  const experiences = [
+  const education = [
     {
       type: 'education',
       title: "Bachelor's in Computer Science",
@@ -18,11 +18,14 @@ const About = () => {
       skills: ['C', 'C#', 'Database', 'Algorithms'],
       icon: GraduationCap,
     },
+  ];
+
+  const experiences = [
     {
       type: 'work',
       title: 'Intern Big Data Engineer',
       company: 'Doğuş Teknoloji',
-      date: 'May 2024 - Dec 2024',
+      date: 'May 2024 - Dec 2024 (6 Month)',
       skills: ['Python', 'SQL', 'Airflow', 'Spark', 'HDFS', 'API'],
       icon: Briefcase,
     },
@@ -30,7 +33,7 @@ const About = () => {
       type: 'work',
       title: 'Intern Front-End Developer',
       company: 'Doğuş Teknoloji',
-      date: 'Jul 2023 - Dec 2023',
+      date: 'Jul 2023 - Dec 2023 (6 Month)',
       skills: ['ReactJS', 'JavaScript', 'CSS', 'API'],
       icon: Briefcase,
     },
@@ -38,8 +41,16 @@ const About = () => {
       type: 'work',
       title: 'Intern Data Engineer',
       company: 'OneNewOne',
-      date: 'Dec 2023 - Present',
+      date: 'Dec 2023 - June 2025 (6 Month)',
       skills: ['Data Analysis'],
+      icon: Briefcase,
+    },
+    {
+      type: 'work',
+      title: 'Jr. AI Specialist',
+      company: 'OneNewOne',
+      date: 'June 2023 - Present',
+      skills: ['Python', 'SQL', 'API'],
       icon: Briefcase,
     },
   ];
@@ -74,9 +85,53 @@ const About = () => {
         >
           <motion.h2
             variants={itemVariants}
-            className="text-4xl font-bold text-center mb-12 text-secondary-900 font-display"
+            className="text-4xl font-bold text-center mb-8 text-secondary-900 font-display"
           >
-            Experience & Education
+            Education
+          </motion.h2>
+
+          <div className="space-y-8">
+            {education.map((edu, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="card p-6 hover:shadow-lg transition-all duration-300"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-gradient-to-br from-primary-100 to-primary-200 rounded-lg">
+                    <edu.icon className="w-6 h-6 text-primary-700" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-secondary-900">
+                      {edu.title}
+                    </h3>
+                    <p className="text-secondary-600 mt-1 font-medium">{edu.company}</p>
+                    <div className="flex items-center gap-2 text-secondary-500 mt-2">
+                      <Calendar className="w-4 h-4" />
+                      <span className="text-sm">{edu.date}</span>
+                    </div>
+                    {edu.skills.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mt-4">
+                        {edu.skills.map((skill, skillIndex) => (
+                          <span
+                            key={skillIndex}
+                            className="px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm font-medium border border-primary-200"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          <motion.h2
+            variants={itemVariants}
+            className="text-4xl font-bold text-center mb-12 mt-12 text-secondary-900 font-display"
+          >
+            Experience
           </motion.h2>
 
           <div className="space-y-8">
