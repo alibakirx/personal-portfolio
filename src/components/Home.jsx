@@ -50,9 +50,9 @@ const Home = () => {
         {/* İsim - Tam Ekran */}
         <motion.h1
           variants={itemVariants}
-          className="text-4xl md:text-6xl lg:text-8xl font-bold text-white mb-12 mt-4 drop-shadow-2xl font-display text-center w-full"
+          className="text-4xl md:text-6xl lg:text-8xl font-bold text-yellow-500 mb-12 mt-4 drop-shadow-2xl font-display text-center w-full"
         >
-          Muhammed Ali Bakır
+          Muhammed Ali Bakır 
         </motion.h1>
 
         <motion.p
