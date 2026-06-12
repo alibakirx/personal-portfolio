@@ -16,8 +16,8 @@ const About = () => {
       type: 'education',
       title: language === 'tr' ? 'Bilgisayar Bilimleri Lisans' : "Bachelor's in Computer Science",
       company: language === 'tr' ? 'Dokuz Eylül Üniversitesi' : 'Dokuz Eylül University',
-      date: language === 'tr' ? '2021 - 2025' : '2021 - 2025',
-      skills: ['C', 'C#', language === 'tr' ? 'Veritabanı' : 'Database', language === 'tr' ? 'Algoritmalar' : 'Algorithms'],
+      date: language === 'tr' ? '2021 - 2026' : '2021 - 2026',
+      skills: ['C', 'C#', 'Python', 'SQL', language === 'tr' ? 'Veritabanı' : 'Database', language === 'tr' ? 'Algoritmalar' : 'Algorithms'],
       icon: GraduationCap,
     },
   ];
@@ -26,15 +26,15 @@ const About = () => {
     {
       type: 'work',
       title: 'Jr. AI Specialist',
-      company: 'OneNewOne',
-      date: language === 'tr' ? 'Haziran 2025 - Devam Ediyor' : 'June 2025 - Present',
-      skills: ['Python', 'SQL', 'API'],
+      company: 'ONO',
+      date: language === 'tr' ? 'Haziran 2025 - Haziran 2026 (1 Yıl)' : 'June 2025 - June 2026 (1 Year)',
+      skills: ['Python', 'SQL', 'API', 'AI', [language === 'tr' ? 'Veri Mühendisliği' : 'Data Engineering']],
       icon: Briefcase,
     },
     {
       type: 'work',
       title: 'Intern Data Engineer',
-      company: 'OneNewOne',
+      company: 'ONO',
       date: language === 'tr' ? 'Aralık 2024 - Haziran 2025 (6 Ay)' : 'Dec 2024 - June 2025 (6 Month)',
       skills: [language === 'tr' ? 'Veri Analizi' : 'Data Analysis'],
       icon: Briefcase,
@@ -55,8 +55,8 @@ const About = () => {
       skills: ['ReactJS', 'JavaScript', 'CSS', 'API'],
       icon: Briefcase,
     },
-    
-    
+
+
   ];
 
   const containerVariants = {
@@ -78,8 +78,12 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="section bg-gradient-to-br from-[#6100cf] via-[#6f5d83] to-[#1e293b]">
-      <div className="container mx-auto px-6">
+    <section id="about" className="section bg-slate-950 relative overflow-hidden">
+      {/* Background ambient blobs */}
+      <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[130px] pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -89,7 +93,7 @@ const About = () => {
         >
           <motion.h2
             variants={itemVariants}
-            className="text-4xl font-bold text-center mb-8 text-secondary-900 font-display"
+            className="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 font-display"
           >
             {language === 'tr' ? 'Eğitim' : 'Education'}
           </motion.h2>
@@ -100,17 +104,17 @@ const About = () => {
                 key={index}
                 variants={itemVariants}
                 className="card p-6 hover:shadow-lg transition-all duration-300"
-               >
+              >
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-gradient-to-br from-primary-100 to-primary-200 rounded-lg">
-                    <edu.icon className="w-6 h-6 text-primary-700" />
+                  <div className="p-3 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-white/5 rounded-xl">
+                    <edu.icon className="w-6 h-6 text-indigo-400" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-secondary-900">
+                    <h3 className="text-xl font-semibold text-white">
                       {edu.title}
                     </h3>
-                    <p className="text-secondary-600 mt-1 font-medium">{edu.company}</p>
-                    <div className="flex items-center gap-2 text-secondary-500 mt-2">
+                    <p className="text-indigo-400 mt-1 font-medium">{edu.company}</p>
+                    <div className="flex items-center gap-2 text-slate-400 mt-2">
                       <Calendar className="w-4 h-4" />
                       <span className="text-sm">{edu.date}</span>
                     </div>
@@ -119,7 +123,7 @@ const About = () => {
                         {edu.skills.map((skill, skillIndex) => (
                           <span
                             key={skillIndex}
-                            className="px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm font-medium border border-primary-200"
+                            className="px-3 py-1 bg-indigo-500/10 text-indigo-300 rounded-full text-sm font-medium border border-indigo-500/20"
                           >
                             {skill}
                           </span>
@@ -133,7 +137,7 @@ const About = () => {
           </div>
           <motion.h2
             variants={itemVariants}
-            className="text-4xl font-bold text-center mb-12 mt-12 text-secondary-900 font-display"
+            className="text-4xl font-bold text-center mb-12 mt-20 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 font-display"
           >
             {language === 'tr' ? 'Deneyim' : 'Experience'}
           </motion.h2>
@@ -146,15 +150,15 @@ const About = () => {
                 className="card p-6 hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-gradient-to-br from-primary-100 to-primary-200 rounded-lg">
-                    <exp.icon className="w-6 h-6 text-primary-700" />
+                  <div className="p-3 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-white/5 rounded-xl">
+                    <exp.icon className="w-6 h-6 text-indigo-400" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-secondary-900">
+                    <h3 className="text-xl font-semibold text-white">
                       {exp.title}
                     </h3>
-                    <p className="text-secondary-600 mt-1 font-medium">{exp.company}</p>
-                    <div className="flex items-center gap-2 text-secondary-500 mt-2">
+                    <p className="text-indigo-400 mt-1 font-medium">{exp.company}</p>
+                    <div className="flex items-center gap-2 text-slate-400 mt-2">
                       <Calendar className="w-4 h-4" />
                       <span className="text-sm">{exp.date}</span>
                     </div>
@@ -163,7 +167,7 @@ const About = () => {
                         {exp.skills.map((skill, skillIndex) => (
                           <span
                             key={skillIndex}
-                            className="px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm font-medium border border-primary-200"
+                            className="px-3 py-1 bg-indigo-500/10 text-indigo-300 rounded-full text-sm font-medium border border-indigo-500/20"
                           >
                             {skill}
                           </span>
