@@ -142,8 +142,8 @@ const Contact = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className={`flex items-center space-x-2 px-5 py-3 rounded-xl border text-sm font-medium transition-all duration-300 ${link.action === 'view'
-                    ? 'border-indigo-500/30 text-indigo-400 hover:bg-indigo-500/10 hover:border-indigo-400'
-                    : 'border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-400'
+                      ? 'border-indigo-500/30 text-indigo-400 hover:bg-indigo-500/10 hover:border-indigo-400'
+                      : 'border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-400'
                     }`}
                 >
                   <link.icon className="w-4 h-4" />
